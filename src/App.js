@@ -29,32 +29,12 @@ const AppContent = () => {
       {currentUser && <Navbar />}
       <div className="container mx-auto px-4 py-8">
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <AdminRoute>
-                <AdminPanel />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/request"
-            element={
-              <ProtectedRoute>
-                <VacationRequestForm />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/login" element={!currentUser ? <Login /> : <Navigate to="/dashboard" />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/admin" element={<AdminRoute><AdminPanel /></AdminRoute>} />
+          <Route path="/request" element={<ProtectedRoute><VacationRequestForm /></ProtectedRoute>} />
           <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
     </div>
@@ -64,7 +44,7 @@ const AppContent = () => {
 // Componente App que envuelve todo con el AuthProvider
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <AuthProvider>
         <AppContent />
       </AuthProvider>
