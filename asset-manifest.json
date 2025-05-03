@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/vacaciones-app/static/css/main.b284ad9c.css",
+    "main.js": "/vacaciones-app/static/js/main.3d692cd6.js",
+    "index.html": "/vacaciones-app/index.html",
+    "main.b284ad9c.css.map": "/vacaciones-app/static/css/main.b284ad9c.css.map",
+    "main.3d692cd6.js.map": "/vacaciones-app/static/js/main.3d692cd6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b284ad9c.css",
+    "static/js/main.3d692cd6.js"
+  ]
+}

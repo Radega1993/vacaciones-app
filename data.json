@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Administrador",
+            "username": "admin",
+            "password": "admin123",
+            "isAdmin": true,
+            "totalVacationDays": 30,
+            "usedVacationDays": 0
+        },
+        {
+            "id": "2",
+            "name": "Usuario Normal",
+            "username": "usuario",
+            "password": "usuario123",
+            "isAdmin": false,
+            "totalVacationDays": 20,
+            "usedVacationDays": 0
+        }
+    ],
+    "vacationRequests": [
+        {
+            "id": "1",
+            "userId": "2",
+            "username": "usuario",
+            "name": "Usuario Normal",
+            "startDate": "2024-05-10",
+            "endDate": "2024-05-15",
+            "status": "pending"
+        }
+    ]
+}
