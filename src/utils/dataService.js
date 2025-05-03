@@ -4,7 +4,7 @@ const dataService = {
     // Inicializar datos
     initializeData: () => {
         if (!localStorage.getItem('users')) {
-            fetch(process.env.PUBLIC_URL + '/data.json')
+            fetch('./data.json')
                 .then(response => response.json())
                 .then(data => {
                     localStorage.setItem('users', JSON.stringify(data.users));
