@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import VacationRequestForm from './components/VacationRequestForm';
 import AdminPanel from './components/AdminPanel';
-import Navbar from './components/Navbar';
+import VacationRequestForm from './components/VacationRequestForm';
 import './index.css';
 
 // Componente para rutas protegidas
@@ -39,19 +39,19 @@ const AppContent = () => {
             }
           />
           <Route
-            path="/request"
-            element={
-              <ProtectedRoute>
-                <VacationRequestForm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/admin"
             element={
               <AdminRoute>
                 <AdminPanel />
               </AdminRoute>
+            }
+          />
+          <Route
+            path="/request"
+            element={
+              <ProtectedRoute>
+                <VacationRequestForm />
+              </ProtectedRoute>
             }
           />
           <Route path="/" element={<Navigate to="/login" />} />
@@ -64,7 +64,7 @@ const AppContent = () => {
 // Componente App que envuelve todo con el AuthProvider
 const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <AuthProvider>
         <AppContent />
       </AuthProvider>
